@@ -1,7 +1,6 @@
 LICENSE
 MANIFEST.in
 README.md
-requirements.txt
 setup.cfg
 setup.py
 mask_rcnn.egg-info/PKG-INFO
