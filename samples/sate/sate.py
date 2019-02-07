@@ -90,7 +90,7 @@ class CocoConfig(Config):
     NUM_CLASSES = 1 + 1  # building detection
 
     # Use smaller anchors because our images and objects are small.
-    RPN_ANCHOR_SCALES = (16, 32, 64, 128, 256)
+    RPN_ANCHOR_SCALES = (8, 16, 32, 64, 128)
 
 
 
