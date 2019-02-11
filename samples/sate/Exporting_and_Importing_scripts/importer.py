@@ -20,6 +20,7 @@ import mrcnn.utils as utils
 import mrcnn.visualize as visualize
 import matplotlib.pyplot as plt
 import math
+import time
 import argparse
 
 
@@ -65,6 +66,9 @@ def main(args):
     class_names = ["BG","building"]
 
     for i, image in enumerate(images):
+        
+        print("Processing:", image_names[i])
+        start = time.time()
 
     	output_path = os.path.join(OutIMAGE_DIR, image_names[i][:-4] + ".png")
 
@@ -76,6 +80,10 @@ def main(args):
     	results = detect(sess, [image], inference_config)
 
     	r = results[0]
+        
+        end = time.time()
+        
+        print("Processing time = {} seconds \n".format(end-start))
 
     	fig = visualize.save_instances(image, r['rois'], r['masks'], r['class_ids'], class_names, r['scores'])
 
@@ -85,14 +93,7 @@ def main(args):
 
 
 def detect(sess, images, inference_config, verbose=0):
-	# Load the image
-	#testImage =os.path.join(os.getcwd(),'test_images','Nadir27.jpg') #image of the size defined in the config
-	
-	#image = imageio.imread(testImage)
-	#print('Images loaded.')
-	#images = [image]
-	#print("Processing {} images".format(len(images)))
-
+    
 	if verbose:
 		modellib.log("Processing {} images".format(len(images)))
 		for image in images:
@@ -326,6 +327,15 @@ def unmold_detections(detections, mrcnn_mask, original_image_shape,
             class_ids = np.delete(class_ids, exclude_ix, axis=0)
             scores = np.delete(scores, exclude_ix, axis=0)
             masks = np.delete(masks, exclude_ix, axis=0)
+            N = class_ids.shape[0]
+            
+        # Filter out detections below a certain confidence score
+        exclude_ix2 = np.where(scores <= inference_config.DETECTION_MIN_CONFIDENCE)[0]
+        if exclude_ix2.shape[0] > 0:
+            boxes = np.delete(boxes, exclude_ix2, axis=0)
+            class_ids = np.delete(class_ids, exclude_ix2, axis=0)
+            scores = np.delete(scores, exclude_ix2, axis=0)
+            masks = np.delete(masks, exclude_ix2, axis=0)
             N = class_ids.shape[0]
 
         # Resize masks to original image size and set boundary threshold.
