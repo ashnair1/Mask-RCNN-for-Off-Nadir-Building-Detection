@@ -7,14 +7,5 @@ class InferenceConfig(Config):
     GPU_COUNT = 1
     IMAGES_PER_GPU = 1
     DETECTION_MIN_CONFIDENCE = 0
-    
-
-    # # Number of classes (including background)
-    # NUM_CLASSES = 1 + 1  # building detection
-
-    # # Use smaller anchors because our images and objects are small.
-    # #RPN_ANCHOR_SCALES = (16, 32, 64, 128, 256)
-    # RPN_ANCHOR_SCALES = (8, 16, 32, 64, 128)
-
 
 
