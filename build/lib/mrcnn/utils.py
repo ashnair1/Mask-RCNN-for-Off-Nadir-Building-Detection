@@ -791,6 +791,89 @@ def compute_recall(pred_boxes, gt_boxes, iou):
     return recall, positive_ids
 
 
+# F1 score and F1 score spacenet are almost equivalent
+def f1_score(hits,fp,fn):
+    pred = hits/(hits + fp)
+    recall = hits/(hits + fn)
+    f1 = (2*pred*recall)/(pred+recall)
+    return f1
+    
+def f1_score_spacenet(hits,M,N):
+    f1_space = (2*hits)/(M+N)
+    return f1_space
+
+
+def compute_f1(gt_boxes, gt_class_ids, gt_masks,
+               pred_boxes, pred_class_ids, pred_scores, pred_masks,
+               iou_threshold=0.5):
+    """Compute Average Precision at a set IoU threshold (default 0.5).
+
+    Returns:
+    mAP: Mean Average Precision
+    precisions: List of precisions at different class score thresholds.
+    recalls: List of recall values at different class score thresholds.
+    overlaps: [pred_boxes, gt_boxes] IoU overlaps.
+    """
+    # Get matches and overlaps
+    gt_match, pred_match, overlaps = compute_matches(
+        gt_boxes, gt_class_ids, gt_masks,
+        pred_boxes, pred_class_ids, pred_scores, pred_masks,
+        iou_threshold)
+    
+    hits = 0
+    fp = 0
+    c = 0
+    
+    for i in gt_match:
+        if i != -1:
+            hits+=1
+
+    # Avoid ZeroDivision Error        
+    if hits == 0:
+        return 0.0
+        
+    fn = len(gt_match) - hits
+    
+    
+    for i in pred_match:
+        if i == -1:
+            fp += 1
+        else:
+            c += 1
+            
+    assert hits == c
+            
+    return f1_score(hits,fp,fn)
+
+
+def compute_f1_spacenet(gt_boxes, gt_class_ids, gt_masks,
+               pred_boxes, pred_class_ids, pred_scores, pred_masks,
+               iou_threshold=0.5):
+    """Compute Average Precision at a set IoU threshold (default 0.5).
+
+    Returns:
+    mAP: Mean Average Precision
+    precisions: List of precisions at different class score thresholds.
+    recalls: List of recall values at different class score thresholds.
+    overlaps: [pred_boxes, gt_boxes] IoU overlaps.
+    """
+    # Get matches and overlaps
+    gt_match, pred_match, overlaps = compute_matches(
+        gt_boxes, gt_class_ids, gt_masks,
+        pred_boxes, pred_class_ids, pred_scores, pred_masks,
+        iou_threshold)
+    
+    hits = 0
+    
+    for i in gt_match:
+        if i != -1:
+            hits+=1
+    
+    M = len(gt_match)
+    N = len(pred_match)
+            
+    return f1_score_spacenet(hits,M,N)
+
 # ## Batch Slicing
 # Some custom layers support a batch size of 1 only, and require a lot of work
 # to support batches greater than 1. This function slices an input tensor
