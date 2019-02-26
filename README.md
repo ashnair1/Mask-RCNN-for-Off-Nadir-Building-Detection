@@ -23,4 +23,4 @@ Refer the SpaceNet Off Nadir challenge page ([link](https://spacenetchallenge.gi
 Latest weights can be found [here](https://drive.google.com/open?id=1CExnB6BaZ8sjA7JIpVcuQLCgoHCjWqHd)
 
 **Notes**:
-1. Currently, the model requires the training data to be in jpg. By default, the images in the SpaceNet dataset are in gtiff. You can do the conversion via `gdal_translate` from the GDAL library. 
+1. Currently, the model requires the training data to be in jpg. By default, the images in the SpaceNet dataset are in geotiff. You can do the conversion via `gdal_translate` from the GDAL library. 
