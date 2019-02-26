@@ -82,10 +82,6 @@ class CocoConfig(Config):
     # Adjust down if you use a smaller GPU.
     IMAGES_PER_GPU = 2
 
-
-
-    #RPN_ANCHOR_SCALES = (16, 32, 64, 128, 256)
-
     # Number of classes (including background)
     NUM_CLASSES = 1 + 1  # building detection
 
