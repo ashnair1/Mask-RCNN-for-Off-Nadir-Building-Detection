@@ -2,13 +2,15 @@
 
 This repository reuses Matterport's Mask RCNN implementation. Kindly refer their implementation https://github.com/matterport/Mask_RCNN for detailed documentation on many aspects of this code.
 
-**Current Score:**
+#### **Current Score:**
 
 mAP | F1 
 --- | --- 
 30.4 | 37.9 
 
-Download data via:
+### **Dataset**
+
+You can download the data via the following links:
 
 **Training data imagery**:
 
@@ -22,7 +24,7 @@ Refer the SpaceNet Off Nadir challenge page ([link](https://spacenetchallenge.gi
 
 Latest weights can be found [here](https://drive.google.com/open?id=1CExnB6BaZ8sjA7JIpVcuQLCgoHCjWqHd)
 
-**Sample results**
+### **Sample results**
 
 Sample results of using this model on Nadir (left, nadir angle=13&deg;), Off Nadir (center, nadir angle=27&deg;) and Very Off Nadir (right, nadir angle=50&deg;) images are shown below.
 
@@ -33,6 +35,6 @@ Sample results of using this model on Nadir (left, nadir angle=13&deg;), Off Nad
 </p>
 
 
-**Notes**:
+### **Notes**:
 1. Currently, the model requires the training data to be in jpg. By default, the images in the SpaceNet dataset are in geotiff. You can do the conversion via `gdal_translate` from the GDAL library. 
 2. Expected data format: MS COCO
