@@ -25,9 +25,9 @@ Latest weights can be found [here](https://drive.google.com/open?id=1CExnB6BaZ8s
 Example output images using this model are shown below.
 
 <p align="center">
-   <img src="https://github.com/ash1995/Mask-RCNN-for-Off-Nadir-Building-Detection/blob/master/example_images/Atlanta_nadir13_catid_1030010002B7D800_748451_3735939.png" alt="Example result of MaskRCNN on SpaceNet"/ width=650>
-  <img src="https://github.com/ash1995/Mask-RCNN-for-Off-Nadir-Building-Detection/blob/master/example_images/Atlanta_nadir27_catid_1030010003472200_739451_3740439.png" alt="Example result of MaskRCNN on SpaceNet"/ width=650>
-  <img src="https://github.com/ash1995/Mask-RCNN-for-Off-Nadir-Building-Detection/blob/master/example_images/Atlanta_nadir50_catid_10300100039E6200_746201_3721539.png" alt="Example result of MaskRCNN on SpaceNet"/ width=650>
+   <img src="https://github.com/ash1995/Mask-RCNN-for-Off-Nadir-Building-Detection/blob/master/example_images/Atlanta_nadir13_catid_1030010002B7D800_748451_3735939.png" alt="Example result of MaskRCNN on SpaceNet"/ width=275 img align="left">
+  <img src="https://github.com/ash1995/Mask-RCNN-for-Off-Nadir-Building-Detection/blob/master/example_images/Atlanta_nadir27_catid_1030010003472200_739451_3740439.png" alt="Example result of MaskRCNN on SpaceNet"/ width=275 img align="center">
+  <img src="https://github.com/ash1995/Mask-RCNN-for-Off-Nadir-Building-Detection/blob/master/example_images/Atlanta_nadir50_catid_10300100039E6200_746201_3721539.png" alt="Example result of MaskRCNN on SpaceNet"/ width=275 img align="right">
 </p>
 
 
