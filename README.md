@@ -38,3 +38,4 @@ Sample results of using this model on Nadir (left, nadir angle=13&deg;), Off Nad
 ### **Notes**:
 1. Currently, the model requires the training data to be in jpg. By default, the images in the SpaceNet dataset are in geotiff. You can do the conversion via `gdal_translate` from the GDAL library. 
 2. Expected data format: MS COCO
+3. There is some issue with using the default cocoeval.py script for evaluating this dataset. Refer this [notebook](https://github.com/ash1995/Mask-RCNN-for-Off-Nadir-Building-Detection/blob/master/samples/sate/Calculate_metrics.ipynb) for calculating metrics. 
