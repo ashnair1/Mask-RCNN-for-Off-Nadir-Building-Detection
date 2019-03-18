@@ -1,6 +1,6 @@
 ## **Mask RCNN for Spacenet Off Nadir Building Detection**
 
-This repository reuses Matterport's Mask RCNN implementation. Kindly refer their implementation https://github.com/matterport/Mask_RCNN for detailed documentation on many aspects of this code.
+This repository reuses Matterport's Mask RCNN implementation. Kindly refer their repository [here](https://github.com/matterport/Mask_RCNN) for further details on the core implementation. The pretrained weights were obtained from crowdAI's implementation found [here](https://github.com/crowdAI/crowdai-mapping-challenge-mask-rcnn).
 
 #### **Current Score:**
 
