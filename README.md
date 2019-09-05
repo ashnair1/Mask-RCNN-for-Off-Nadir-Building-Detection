@@ -38,4 +38,21 @@ Sample results of using this model on *Nadir* (left, nadir angle=13&deg;), *Off 
 ### **Notes**:
 1. Currently, the model requires the training data to be in jpg. By default, the images in the SpaceNet dataset are in geotiff. You can do the conversion via `gdal_translate` from the GDAL library. 
 2. Expected data format: MS COCO
-3. There is some issue with using the default cocoeval.py script for evaluating this dataset. Refer this [notebook](https://github.com/ash1995/Mask-RCNN-for-Off-Nadir-Building-Detection/blob/master/samples/sate/Calculate_metrics.ipynb) for calculating metrics. 
+3. There is some issue with using the default cocoeval.py script for evaluating this dataset. Refer this [notebook](https://github.com/ash1995/Mask-RCNN-for-Off-Nadir-Building-Detection/blob/master/samples/sate/Calculate_metrics.ipynb) for calculating metrics.
+
+### About cocoeval 
+
+Be aware of [area ranges](https://github.com/cocodataset/cocoapi/blob/636becdc73d54283b3aac6d4ec363cffbb6f9b20/PythonAPI/pycocotools/cocoeval.py#L509) and [max detections](https://github.com/cocodataset/cocoapi/blob/636becdc73d54283b3aac6d4ec363cffbb6f9b20/PythonAPI/pycocotools/cocoeval.py#L508) in `cocoeval.py`. By default, the cocoeval script has the following configuration:
+```
+# Area Ranges
+
+[[0 ** 2, 1e5 ** 2],   # all
+[0 ** 2, 32 ** 2],      # small 
+[32 ** 2, 96 ** 2],    # medium
+[96 ** 2, 1e5 ** 2]]  #  large
+
+# Max Detections
+[1, 10, 100]
+```
+These area ranges and max detection settings might be appropriate for natural images (as in the COCO dataset) but tis not the case for satellite images. Objects in satellite images are generally smaller and **much more** numerous. Depending on your use case and your test set, you might need to alter these params accordingly for a better evaluation of your model. 
+
