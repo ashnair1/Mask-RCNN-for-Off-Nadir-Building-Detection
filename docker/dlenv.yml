@@ -10,10 +10,8 @@ dependencies:
   - descartes=1.1.0=py_2
   - fiona=1.8.4=py36heb36068_1001
   - geopandas=0.4.0=py_1
-  - libspatialindex=1.8.5=hf484d3e_1003
   - psycopg2=2.7.6.1=py36hb7f436b_1000
   - pysal=1.14.4.post2=py36_1001
-  - rtree=0.8.3=py36_1000
   - tabulate=0.8.2=py_0
   - _tflow_1100_select=0.0.3=mkl
   - _tflow_select=2.1.0=gpu
@@ -157,7 +155,6 @@ dependencies:
   - libpq=10.5=h1ad7b7a_0
   - libprotobuf=3.6.1=hd408876_0
   - libsodium=1.0.16=h1bed415_0
-  - libspatialite=4.3.0a=he475c7f_19
   - libssh2=1.8.0=h9cfc8f7_4
   - libstdcxx-ng=8.2.0=hdf63c60_1
   - libtiff=4.0.9=he85c1e1_2
@@ -359,12 +356,9 @@ dependencies:
     - ipdb==0.11
     - jwcrypto==0.6.0
     - keras==2.2.4
-    - keras-resnet==0.1.0
-    - keras-retinanet==0.5.0
     - libarchive-c==2.8
     - lief==0.9.0
     - mako==1.0.3
-    - mask-rcnn==2.1
     - mercantile==1.0.4
     - msgpack==0.5.6
     - npstreams==1.4.0
@@ -389,7 +383,6 @@ dependencies:
     - ssh-import-id==5.5
     - supermercado==0.0.5
     - tables==3.4.4
-    - tf-unet==0.1.2
     - tifffile==2018.11.28
     - tinytools==1.1.0
     - torch==1.0.0
@@ -400,4 +393,3 @@ dependencies:
     - virtualenv==16.1.0
     - visdom==0.1.8.5
     - xmltodict==0.12.0
-
